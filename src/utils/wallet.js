@@ -443,6 +443,10 @@ class Wallet {
     async saveAccount(accountId, keyPair) {
         await this.setKey(accountId, keyPair)
         this.accounts[accountId] = true
+
+        // temporary solution
+        // TODO: figure out better way to inject reducer
+        store.injectReducer()
     }
 
     selectAccount(accountId) {
